@@ -11,7 +11,10 @@ use ApiPlatform\Core\Annotation\ApiSubresource;
 
 /**
  * Role
- * @ApiResource
+ * @ApiResource(
+ *     collectionOperations={"get"},
+ *     itemOperations={"get"}
+ * )
  * @ORM\Table(name="roles")
  * @ORM\Entity(repositoryClass="App\Repository\Frrbac\RolesRepository")
  */
@@ -268,10 +271,13 @@ class Roles
     /**
      * @return Collection|Users[]
      */
-    public function getUser(): Collection
+    
+    
+     public function getUser(): Collection
     {
         return $this->user;
-    }
+    } 
+    
 
     public function addUser(Users $user): self
     {

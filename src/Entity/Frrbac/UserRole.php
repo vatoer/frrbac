@@ -31,7 +31,7 @@ class UserRole
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * @ApiSubresource
      */
-    private $users;
+    private $user;
 
     /**
      * Undocumented variable
@@ -42,7 +42,7 @@ class UserRole
      * @ORM\JoinColumn(name="role_id", referencedColumnName="id")
      * @ApiSubresource
      */
-    private $roles;
+    private $role;
 
     /**
      * @var string|null
@@ -79,25 +79,25 @@ class UserRole
      */
     private $metaUpdateBy;
 
-    public function getUsers(): ?Users
+    public function getUser(): ?Users
     {
-        return $this->users;
+        return $this->user;
     }
 
-    public function getRoles(): ?Roles
+    public function getRole(): ?Roles
     {
-        return $this->roles;
+        return $this->role;
     }
 
-    public function setUsers(Users $user)
+    public function setUser(Users $user)
     {
         $this->users = $user;
         return $this;
     }
 
-    public function setRoles(Roles $role)
+    public function setRole(Roles $role)
     {
-        $this->roles = $role;
+        $this->role = $role;
         return $this;
     }
 

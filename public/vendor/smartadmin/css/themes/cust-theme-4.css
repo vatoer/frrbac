@@ -1744,6 +1744,9 @@ code {
     background-color: #0c85e2;
     border-color: #0c7ed5; }
   .btn-primary:focus, .btn-primary.focus {
+    color: #fff;
+    background-color: #0c85e2;
+    border-color: #0c7ed5;
     -webkit-box-shadow: 0 0 0 0.2rem rgba(66, 167, 245, 0.5);
             box-shadow: 0 0 0 0.2rem rgba(66, 167, 245, 0.5); }
   .btn-primary.disabled, .btn-primary:disabled {
@@ -1771,6 +1774,9 @@ code {
     background-color: #5a6268;
     border-color: #545b62; }
   .btn-secondary:focus, .btn-secondary.focus {
+    color: #fff;
+    background-color: #5a6268;
+    border-color: #545b62;
     -webkit-box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5);
             box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5); }
   .btn-secondary.disabled, .btn-secondary:disabled {
@@ -1798,6 +1804,9 @@ code {
     background-color: #57e404;
     border-color: #52d704; }
   .btn-success:focus, .btn-success.focus {
+    color: #212529;
+    background-color: #57e404;
+    border-color: #52d704;
     -webkit-box-shadow: 0 0 0 0.2rem rgba(94, 219, 22, 0.5);
             box-shadow: 0 0 0 0.2rem rgba(94, 219, 22, 0.5); }
   .btn-success.disabled, .btn-success:disabled {
@@ -1825,6 +1834,9 @@ code {
     background-color: #a70bde;
     border-color: #9d0ad2; }
   .btn-info:focus, .btn-info.focus {
+    color: #fff;
+    background-color: #a70bde;
+    border-color: #9d0ad2;
     -webkit-box-shadow: 0 0 0 0.2rem rgba(197, 61, 246, 0.5);
             box-shadow: 0 0 0 0.2rem rgba(197, 61, 246, 0.5); }
   .btn-info.disabled, .btn-info:disabled {
@@ -1852,6 +1864,9 @@ code {
     background-color: #ec8700;
     border-color: #df8000; }
   .btn-warning:focus, .btn-warning.focus {
+    color: #fff;
+    background-color: #ec8700;
+    border-color: #df8000;
     -webkit-box-shadow: 0 0 0 0.2rem rgba(222, 136, 22, 0.5);
             box-shadow: 0 0 0 0.2rem rgba(222, 136, 22, 0.5); }
   .btn-warning.disabled, .btn-warning:disabled {
@@ -1879,6 +1894,9 @@ code {
     background-color: #e60338;
     border-color: #d90334; }
   .btn-danger:focus, .btn-danger.focus {
+    color: #fff;
+    background-color: #e60338;
+    border-color: #d90334;
     -webkit-box-shadow: 0 0 0 0.2rem rgba(252, 54, 100, 0.5);
             box-shadow: 0 0 0 0.2rem rgba(252, 54, 100, 0.5); }
   .btn-danger.disabled, .btn-danger:disabled {
@@ -1906,6 +1924,9 @@ code {
     background-color: #ececec;
     border-color: #e6e6e6; }
   .btn-light:focus, .btn-light.focus {
+    color: #212529;
+    background-color: #ececec;
+    border-color: #e6e6e6;
     -webkit-box-shadow: 0 0 0 0.2rem rgba(222, 222, 223, 0.5);
             box-shadow: 0 0 0 0.2rem rgba(222, 222, 223, 0.5); }
   .btn-light.disabled, .btn-light:disabled {
@@ -1933,6 +1954,9 @@ code {
     background-color: #32373c;
     border-color: #2c3136; }
   .btn-dark:focus, .btn-dark.focus {
+    color: #fff;
+    background-color: #32373c;
+    border-color: #2c3136;
     -webkit-box-shadow: 0 0 0 0.2rem rgba(95, 101, 108, 0.5);
             box-shadow: 0 0 0 0.2rem rgba(95, 101, 108, 0.5); }
   .btn-dark.disabled, .btn-dark:disabled {
