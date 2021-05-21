@@ -79,12 +79,12 @@ class UserRole
      */
     private $metaUpdateBy;
 
-    public function getUser(): ?Users
+    public function getUser()
     {
         return $this->user;
     }
 
-    public function getRole(): ?Roles
+    public function getRole()
     {
         return $this->role;
     }

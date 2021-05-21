@@ -15,7 +15,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * User
  * @ApiResource(
- *     normalizationContext={"groups"={"read"}},
+ *     normalizationContext={"groups"={"read","role_permission"}},
  *     denormalizationContext={"groups"={"write"}}
  * )
  * @ORM\Table(name="users")
@@ -403,7 +403,7 @@ class Users
 
     public function clearPassword(): self
     {
-        $this->resetToken = nul;
+        $this->resetToken = null;
         $this->password = null;
         return $this;
     }

@@ -8,12 +8,14 @@ use Doctrine\ORM\Mapping as ORM;
 use Ramsey\Uuid\Doctrine\UuidGenerator;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiSubresource;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 /**
  * Role
  * @ApiResource(
  *     collectionOperations={"get"},
- *     itemOperations={"get"}
+ *     itemOperations={"get"},
  * )
  * @ORM\Table(name="roles")
  * @ORM\Entity(repositoryClass="App\Repository\Frrbac\RolesRepository")
@@ -34,6 +36,7 @@ class Roles
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=100, nullable=false)
+     * @Groups({"read"})
      */
     private $name;
 
@@ -81,7 +84,7 @@ class Roles
 
     /**
      * @var \Doctrine\Common\Collections\Collection
-     *
+     * @Groups({"read"})
      * @ORM\ManyToMany(targetEntity="Permissions", inversedBy="role")
      * @ORM\JoinTable(name="role_permission",
      *   joinColumns={
@@ -272,12 +275,15 @@ class Roles
      * @return Collection|Users[]
      */
     
-    
+
+    /*
+
      public function getUser(): Collection
     {
         return $this->user;
     } 
     
+    */
 
     public function addUser(Users $user): self
     {

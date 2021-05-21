@@ -10,6 +10,7 @@ use App\Entity\Frrbac\Operations;
 use App\Entity\Frrbac\ObjectTarget;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiSubresource;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Permission
@@ -21,7 +22,7 @@ class Permissions
 {
     /**
      * @var string
-     *
+     * 
      * @ORM\Column(name="id", type="string", length=36, nullable=false, )
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="CUSTOM")
@@ -33,6 +34,7 @@ class Permissions
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=100, nullable=false)
+     * @Groups({"read"})
      */
     private $name;
 
@@ -72,6 +74,38 @@ class Permissions
     private $metaUpdateBy;
 
     /**
+     * @var string|null
+     * @Groups({"read"})
+     *
+     * @ORM\Column(name="allow_create", type="string", length=1, nullable=true)
+     */
+    private $allowCreate;
+
+    /**
+     * @var string|null
+     * @Groups({"read"})
+     *
+     * @ORM\Column(name="allow_read", type="string", length=1, nullable=true)
+     */
+    private $allowRead;
+
+    /**
+     * @var string|null
+     * @Groups({"read"})
+     *
+     * @ORM\Column(name="allow_update", type="string", length=1, nullable=true)
+     */
+    private $allowUpdate;
+
+    /**
+     * @var string|null
+     * @Groups({"read"})
+     *
+     * @ORM\Column(name="allow_delete", type="string", length=1, nullable=true)
+     */
+    private $allowDelete;
+
+    /**
      * @var ObjectTarget
      *
      * @ORM\ManyToOne(targetEntity="ObjectTarget")
@@ -84,7 +118,7 @@ class Permissions
 
     /**
      * @var Operations
-     *
+     * @Groups({"read"})
      * @ORM\ManyToOne(targetEntity="Operations")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="operation_id", referencedColumnName="id")
@@ -184,6 +218,51 @@ class Permissions
 
         return $this;
     }
+
+    public function getAllowCreate(): ?string
+    {
+        return $this->allowCreate;
+    }
+
+    public function setAllowCreate(?string $allowCreate): self
+    {
+        $this->allowCreate = $allowCreate;
+        return $this;
+    }
+
+    public function getAllowRead(): ?string
+    {
+        return $this->allowRead;
+    }
+
+    public function setAllowRead(?string $allowRead): self
+    {
+        $this->allowRead = $allowRead;
+        return $this;
+    }
+
+    public function getAllowUpdate(): ?string
+    {
+        return $this->allowUpdate;
+    }
+
+    public function setAllowUpdate(?string $allowUpdate): self
+    {
+        $this->allowUpdate = $allowUpdate;
+        return $this;
+    }
+
+    public function getAllowDelete(): ?string
+    {
+        return $this->allowDelete;
+    }
+
+    public function setAllowDallowDeleteelete(?string $allowDelete): self
+    {
+        $this->allowDelete = $allowDelete;
+        return $this;
+    }
+
 
     public function getObject(): ?ObjectTarget
     {

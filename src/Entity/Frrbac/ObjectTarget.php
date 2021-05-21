@@ -5,6 +5,7 @@ namespace App\Entity\Frrbac;
 use Doctrine\ORM\Mapping as ORM;
 use Ramsey\Uuid\Doctrine\UuidGenerator;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 
 /**
@@ -27,7 +28,7 @@ class ObjectTarget
 
     /**
      * @var string
-     *
+     * @Groups({"read"})
      * @ORM\Column(name="name", type="string", length=100, nullable=false)
      */
     private $name;
