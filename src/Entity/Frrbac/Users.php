@@ -8,6 +8,8 @@ use ApiPlatform\Core\Annotation\ApiSubresource;
 use Ramsey\Uuid\Doctrine\UuidGenerator;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
+
 
 
 // Entity(repositoryClass="App\Repository\Frrbac\UsersRepository")
@@ -21,6 +23,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
  *     },
  *     denormalizationContext={"groups"={"write"}},
  * )
+ * @ApiFilter(OrderFilter::class, properties={"username","email","fullName","loginType","locked"})
  * @ORM\Table(name="users")
  * @ORM\Entity(repositoryClass="App\Repository\Frrbac\UsersRepository")
  */
