@@ -15,8 +15,11 @@ use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * User
  * @ApiResource(
- *     normalizationContext={"groups"={"read","role_permission"}},
- *     denormalizationContext={"groups"={"write"}}
+ *     normalizationContext={
+ *         "skip_null_values" = false,
+ *         "groups"={"read","role_permission"}
+ *     },
+ *     denormalizationContext={"groups"={"write"}},
  * )
  * @ORM\Table(name="users")
  * @ORM\Entity(repositoryClass="App\Repository\Frrbac\UsersRepository")

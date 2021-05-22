@@ -1,6 +1,11 @@
 {% extends 'smartadmin.html.twig' %}
 
-{% block title %}Hello UserController!{% endblock %}
+{% block title %} Manage User {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('users/users') }}
+{% endblock %}
 
 {% block body %}
 <style>
@@ -45,12 +50,12 @@
             </div>
             <div class="panel-container show">
                 <div class="panel-content">
-                    <table id="dt-basic-example" class="table table-bordered table-hover table-striped w-100">
+                    <table id="dt-users" class="table table-bordered table-hover table-striped w-100">
                         <thead>
                             <tr> 
                                 <th>Username</th>
                                 <th>Email</th>
-                                <th>Organisation</th>
+                                <th>Name</th>
                                 <th>Login type</th>
                                 <th>Locked</th>
                             </tr>
