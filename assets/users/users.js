@@ -17,7 +17,7 @@ $(document).ready(function () {
     */
     let dtUsers = $('#dt-users').DataTable({
         "serverSide": true,
-        "searchDelay": 350,
+        "searchDelay": 1200,
         "ajax": {
             "url": "/api/users",
             "type": "GET",
