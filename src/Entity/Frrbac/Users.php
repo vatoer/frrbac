@@ -10,6 +10,7 @@ use Ramsey\Uuid\Doctrine\UuidGenerator;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Serializer\Annotation\Groups;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
+use App\Filter\FullTextSearchFilter;
 
 
 
@@ -25,6 +26,17 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
  *     denormalizationContext={"groups"={"write"}},
  * )
  * @ApiFilter(OrderFilter::class, properties={"username","email","fullName","loginType","locked"})
+ * @ApiFilter(FullTextSearchFilter::class, properties={
+ *             "search_user"={
+ *                 "username": "partial",
+ *                 "email": "partial",
+ *                 "fullName": "partial",
+ *             },
+ *             "search_group"={
+ *                 "organisation": "partial",
+ *                 "roles": "partial"
+ *             }
+ *         })
  * @ORM\Table(name="users")
  * @ORM\Entity(repositoryClass="App\Repository\Frrbac\UsersRepository")
  */

@@ -16,6 +16,9 @@ $(document).ready(function () {
         });
     */
     let dtUsers = $('#dt-users').DataTable({
+        "language": {
+            "loadingRecords": "Please wait - loading...",
+         },
         "serverSide": true,
         "searchDelay": 1200,
         "ajax": {
@@ -40,6 +43,11 @@ $(document).ready(function () {
                 if(d.start>0){
                     d.page = 1 + ( d.start / d.length ) ;
                 }
+
+                if(d.search.value != null || d.search.value != "" ){
+                    d.search_user = d.search.value;
+                }
+
             }
         },
         "columns": [
