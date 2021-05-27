@@ -1,15 +1,41 @@
 security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    encoders:
+        App\Entity\Frrbac\Users:
+            algorithm: auto
     providers:
+        app_user_provider:
+            entity:
+                class: App\Entity\Frrbac\Users
+                property: email
         users_in_memory: { memory: null }
+    enable_authenticator_manager: true
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
-            anonymous: true
+            entry_point: 
+                App\Security\LoginFormAuthenticator
             lazy: true
-            provider: users_in_memory
+            provider: app_user_provider
+            form_login:
+                login_path: login
+                enable_csrf: true
+            guard:
+                authenticator:
+                    - App\Security\LoginFormAuthenticator
+            logout:
+                path: logout
+            remember_me:
+                secret:   '%kernel.secret%'
+                lifetime: 604800 # 1 week in seconds
+                path:     /
+                # by default, the feature is enabled by checking a
+                # checkbox in the login form (see below), uncomment the
+                # following line to always enable it.
+                #always_remember_me: true
+
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
@@ -19,6 +45,12 @@ security:
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
+    access_denied_url: /login
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
+        # allow unauthenticated users to access the login form
+        - { path: ^/login, roles: PUBLIC_ACCESS }
+
+        # but require authentication for all other admin routes
+        - { path: ^/, roles: ROLE_ADMIN }

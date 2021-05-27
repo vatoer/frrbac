@@ -2,6 +2,7 @@
 
 namespace App\Entity\Frrbac;
 
+use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiSubresource;
@@ -40,7 +41,7 @@ use App\Filter\FullTextSearchFilter;
  * @ORM\Table(name="users")
  * @ORM\Entity(repositoryClass="App\Repository\Frrbac\UsersRepository")
  */
-class Users
+class Users implements UserInterface
 {
     // User status constants.
     const UNLOCK       = 0; //
@@ -166,7 +167,6 @@ class Users
     private $status;
 
     /**
-     * @var string|null
      * @Groups({"read", "write"})
      * @ORM\Column(name="roles", type="string", length=1000, nullable=true)
      */
@@ -381,9 +381,12 @@ class Users
         return $this;
     }
 
-    public function getRoles(): ?string
+    public function getRoles(): ?array
     {
-        return $this->roles;
+        $roles[] = $this->roles;
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
     }
 
     public function setRoles(?string $roles): self
@@ -425,6 +428,14 @@ class Users
         $this->resetToken = null;
         $this->password = null;
         return $this;
+    }
+
+    public function getSalt()
+    {
+    }
+
+    public function eraseCredentials()
+    {
     }
 
 }
