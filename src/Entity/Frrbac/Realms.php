@@ -4,6 +4,8 @@ namespace App\Entity\Frrbac;
 
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Ramsey\Uuid\Doctrine\UuidGenerator;
+
 
 /**
  * Realms
@@ -14,12 +16,12 @@ use ApiPlatform\Core\Annotation\ApiResource;
 class Realms
 {
     /**
-     * @var string
-     *
-     * @ORM\Column(name="id", type="string", length=36, nullable=false)
+     * @var \Ramsey\Uuid\UuidInterface
+     * @ORM\Column(name="id", type="uuid", length=36, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
+     * @ORM\GeneratedValue(strategy="CUSTOM")
+     * @ORM\CustomIdGenerator(class=UuidGenerator::class)
+    */
     private $id;
 
     /**
@@ -42,6 +44,25 @@ class Realms
      * @ORM\Column(name="display_name", type="string", length=200, nullable=true)
      */
     private $displayName;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="domain_name", type="string", length=200, nullable=true)
+     */
+    private $domainName;
+
+    /**
+     * @var string|null
+     * @ORM\Column(name="login_type", type="string", length=36, nullable=true)
+     */
+    private $loginType;
+
+    /**
+     * @var string|null
+     * @ORM\Column(name="allow_manage_user", type="string", length=1, nullable=true)
+     */
+    private $allowManageUser;
 
     public function getId(): ?string
     {
@@ -83,6 +104,47 @@ class Realms
 
         return $this;
     }
+
+
+    public function getDomainName(): ?string
+    {
+        return $this->domainName;
+    }
+
+    public function setDomainName(?string $domainName): self
+    {
+        $this->domainName = $domainName;
+
+        return $this;
+    }
+
+
+    public function getLoginType(): ?string
+    {
+        return $this->loginType;
+    }
+
+    public function setLoginType(?string $loginType): self
+    {
+        $this->loginType = $loginType;
+
+        return $this;
+    }
+
+
+    public function getAllowManageUser(): ?string
+    {
+        return $this->allowManageUser;
+    }
+
+    public function setAllowManageUser(?string $allowManageUser): self
+    {
+        $this->allowManageUser = $allowManageUser;
+
+        return $this;
+    }
+
+    
 
 
 }
