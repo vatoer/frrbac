@@ -46,4 +46,113 @@
     </div>
 </div>    
 
+<div class="row">
+    <div class="col-12">
+        <div id="panel-1" class="panel">
+            <div class="panel-hdr">
+                <h2>
+                    Realms <span class="fw-300"><i></i></span>
+                </h2>
+            </div>
+            <div class="panel-container show">
+                <div class="panel-content">
+                    <!-- datatable start -->
+                    <!-- datatable end -->
+                </div> 
+                <!-- panel-content end -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal Right -->
+<div id="modal-forn-new-realm" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-right modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title h4">New Realm / Applications </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fal fa-times"></i></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="panel-1" class="panel">
+                    <div class="panel-container show">
+                        <div class="panel-content">
+                            <div class="panel-tag">
+                                Realms adalah Aplikasi yang akan menggunakan rbac sebagai pusat kontrol autentikas dan autorisasi
+                            </div>
+                            <form name="form-new-realm" id="form-new-realm">
+                                <div class="form-group">
+                                    <label class="form-label" for="example-helping">Name</label>
+                                    <input type="text" id="new-name" name="name" class="form-control" placeholder="Realm Name">
+                                    <span class="help-block">
+                                        Nama harus unik untuk setiap realm yang didaftarkan.
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="basic-url">Domain Name</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">https://</span>
+                                        </div>
+                                        <input type="text" id="new-domain-name" name="domainName" class="form-control" aria-label="domain name">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">.kemlu.go.id</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="loginType">Allow manage user</label>
+                                    <div class="input-group">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" class="custom-control-input" id="new-allow-manage-user-allow" name="allowManageUser" value = "1"  >
+                                            <label class="custom-control-label" for="new-allow-manage-user-allow">allow</label>
+                                        </div>
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" class="custom-control-input" id="new-allow-manage-user-deny" name="allowManageUser" value = "0" checked="checked" >
+                                            <label class="custom-control-label" for="new-allow-manage-user-deny">deny</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="loginType">Login type</label>
+                                    <div class="input-group">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" class="custom-control-input" id="new-login-type-ldap" name="loginType" value = "ldap"  checked="checked">
+                                            <label class="custom-control-label" for="new-login-type-ldap">ldap</label>
+                                        </div>
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" class="custom-control-input" id="new-login-type-password" name="loginType" value = "password" >
+                                            <label class="custom-control-label" for="new-login-type-password">password</label>
+                                        </div>
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" class="custom-control-input" id="new-login-type-omni" name="loginType"  value = "omni" >
+                                            <label class="custom-control-label" for="new-login-type-omni">omni</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="example-textarea">Notes</label>
+                                    <textarea class="form-control" id="new-notes" name="notes" rows="2"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="btn-save-realms" >Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal Right -->
+
 {% endblock %}

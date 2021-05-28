@@ -5,6 +5,8 @@ namespace App\Entity\Frrbac;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Ramsey\Uuid\Doctrine\UuidGenerator;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use App\Filter\FullTextSearchFilter;
 
 
 /**
@@ -12,6 +14,14 @@ use Ramsey\Uuid\Doctrine\UuidGenerator;
  * @ApiResource
  * @ORM\Table(name="realms")
  * @ORM\Entity(repositoryClass="App\Repository\Frrbac\RealmsRepository")
+ * @ApiFilter(FullTextSearchFilter::class, properties={
+ *             "search_realms"={
+ *                 "name": "partial",
+ *                 "displayName": "partial",
+ *                 "notes": "partial",
+ *                 "loginType": "exact" 
+ *             }
+ *         })
  */
 class Realms
 {
@@ -60,7 +70,7 @@ class Realms
 
     /**
      * @var string|null
-     * @ORM\Column(name="allow_manage_user", type="string", length=1, nullable=true)
+     * @ORM\Column(name="allow_manage_user", type="string", length=1, nullable=true, options={"default"="0"})
      */
     private $allowManageUser;
 
